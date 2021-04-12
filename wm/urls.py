@@ -7,6 +7,7 @@ app_name = 'wm'
 
 urlpatterns = [
     # 1122
+    path('userlist/loginpage', views.user_list_for_login_page.as_view(), name = 'user_list_for_login_page'),
     path('', views.SkilNoteListView.as_view() , name="my_shortcut_list"),
     path('myshortcut/search_skil_note_for_me/', views.search_skil_note_for_me.as_view() , name="search_skil_note_for_me"),
     path('myshortcut/search_skil_note_for_all/', views.search_skil_note_for_all.as_view() , name="search_skil_note_for_all"),

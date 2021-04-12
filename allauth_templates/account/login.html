@@ -26,10 +26,9 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% else %}
 {% blocktrans %}
- {% endblocktrans %}
+{% endblocktrans %}
 
-<!-- <img src="{% static 'icon/sn11.jpg' %}" width="100%" height="32%" alt="" class="mb-2"> -->
-<img src="{% static 'icon/skil_note_logo.jpg' %}" width="100%" height="34%" alt="" class="mb-2">
+<img src="{% static 'icon/skilnote_logo.jpg' %}" width="100%" height="34%" alt="" class="mb-2">
 
 
 {% endif %}
@@ -40,36 +39,38 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 </form>
 <a class="primaryAction btn btn-outline-primary float-right btn-block" href="{{ signup_url }}">회원 가입</a>
 <br><br><br>
-
 {% endblock %}
 
 {% block sidearea6 %}
 
-스프링 기본1
-<table class="table table-bordered">
-    <td>
-        <a href="http://www.skilnote-for-java.co.kr/skilnote1/myshortcut/spring-basic/1">spring-basic</a>
-    </td>
+유저 아이디 리스트 <br />
+<div class="user_list">
+    <!-- 유저 정보 출력 -->
+</div>
 
-</table>
-
-스프링 기본2
-<table class="table table-bordered">
-    <td>
-        <a href="http://www.skilnote-for-java.co.kr/skilnote1/myshortcut/java-rest-api-basic/1">java-rest-api-basic</a>
-    </td>
-</table>
 
 {% endblock %}
-
 
 
 <script type="text/javascript">
 {% block extra_js %}
 
     $(document).ready(function(){
-        console.log("로그인 페이지")
+        const url = "/skilnote1/userlist/loginpage"
+        // window.history.pushState("", "", '/skilnote2/myshortcut/')
+
+        $.get(url)
+            .done((result) => {
+                $(".user_list").html(result)
+            })
+            .fail(() => {
+                console.log("fail");
+            })
+            .always(() => {
+                console.log('always');
+        })
     });
+
 
 {% endblock %}
 </script>

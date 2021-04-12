@@ -1,0 +1,42 @@
+{% load static %}
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>id</td>
+        <td>userId</td>
+    </tr>
+
+{% if object_list.exists %}
+    {% for u in object_list %}
+        <tr>
+            <td>{{u.id}}</td>
+            <td id=user_name_{{u.id}}>
+
+                <a href="http://www.skilnote-for-java.shop/skilnote1/myshortcut/{{u.username}}/1">
+                    {{u.username}}
+                </a
+            </td>
+            {% if u.username == request.user.username %}
+            {% else %}
+            {% endif %}
+        </tr>
+    {% endfor %}
+{% else %}
+    <tr>
+        <td colspan="4">
+            <h4>아직 게시물이 없습니다.</h4>
+        </td>
+    </tr>
+{% endif %}
+
+</table>
+
+
+
+
+<script type="text/javascript">
+{% block extra_js %}
+
+{% endblock %}
+</script>
