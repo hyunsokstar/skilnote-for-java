@@ -13,6 +13,9 @@ DEBUG = True
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['108.61.163.103', '127.0.0.1','terecal-hyun.co.kr'  ,'www.skilnote-for-java.shop','skilnote-for-java.shop']
 
+X_FRAME_OPTIONS = 'ALLOWALL'
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
